@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style-01.css">
+    <script>
+        const panelHeading = document.querySelectorAll(".panel-heading")
+       
+
+        function onPanelHeadingClick(event) {
+            console.log(event.target.nextElementSibling)
+            const panelBody = event.target.nextElementSibling;
+
+            if(panelBody.style.display === "none") {
+                panelBody.style.display = "block"
+            } else {
+                panelBody.style.display = "none"
+            }
+        }
+
+        for(let i = 0; i < panelHeading.length; i++) {
+            panelHeading[i].onclick = onPanelHeadingClick
+        }
+
+    </script>
+</head>
+<body>
+    <div class="panel">
+        <div class="panel-heading">What is css?</div>
+        <div class="panel-body">CSS is styling language for HTML</div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,11 @@
+.panel {
+    border: 2px solid blueviolet;
+}
+
+.panel-heading {
+    background-color: blueviolet;
+    cursor: pointer;
+}
+.panel-body {
+    display: none;
+}

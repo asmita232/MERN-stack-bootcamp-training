@@ -1,0 +1,82 @@
+html {
+    overflow: auto;
+    background-color: aqua;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:underline;
+}
+.colm-layout {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color:red;
+}
+.row-1 {
+    background-color:sandybrown ;
+}
+
+.row-1 .col {
+    float: left;
+}
+.row-1 img {
+    /* margin: 0 auto; */
+    float: left;
+    width: 100%
+}
+.row-1 .col-1 {
+    background-color: red;
+    width: 25%;
+    height: 100%;
+    /* padding-right: 2.5%; */
+    padding-right: 2.5%;
+}
+
+.row-1 .col-2 {
+    background-color: seagreen;
+    width: 25%;
+    height: 100%;
+    padding-left: 2.5%;
+}
+
+.row-1 .img-class {
+    width: 100%;
+    height: 100%;
+    padding: 0.2%
+}
+
+.row-1 .col-3 {
+    /* background-color: blue; */
+    width: 45%;
+    height: 100%;
+}
+
+.row-1 .col-3 img {
+    height: 150px;
+    width: 50%;
+}
+
+.subrow-1, .subrow-2, .subrow-3 {
+    padding: 3%;
+    height: 10%;
+}
+.subrow-1 {
+    background-color: blue;
+}
+
+.subrow-2 {
+    background-color: magenta;
+}
+
+.row-1 .col-3 a{
+    font-weight: bolder;
+    font-size: large;
+}
+
+
+/* 
+.row-1 .col {
+    padding-block: 20px;
+} */

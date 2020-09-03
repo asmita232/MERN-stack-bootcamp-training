@@ -29,10 +29,11 @@ img:active {
 
 a {
     text-decoration: none;
+    color: cornflowerblue;
 }
 
 a:hover {
-    color: black;
+    color: darkblue;
 }
 
 .col-1, .col-2 {
@@ -87,4 +88,41 @@ a:hover {
 
 .col-3 p {
     font-weight: bold;
+}
+
+.row-2 {
+    margin-top: 55%;
+    width: 100%;
+    /* inline-size: auto; */
+}
+
+.row-2 img {
+    width: 50%;
+    /* margin-top: 10%; */
+    margin-right: 5%;
+    float: left;
+}
+
+.row-2 img:visited {
+    border: 100px solid black;
+}
+
+.row-2 h4 {
+    font-size: 1.5em;
+}
+.row-2 h2 {
+    font-size: 2.5em;
+}
+.row-2 p {
+    font-weight: 100;
+    font-size: 2em;
+    color: dimgrey;
+}
+
+.row-2 a {
+    color: cornflowerblue;
+    font-size: 2em;
+}
+.row-2 a:hover {
+    color: darkblue;
 }

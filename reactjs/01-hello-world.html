@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const element = React.createElement(
+            'div',{
+                id: 'container'
+            },
+            React.createElement(
+                'span',{
+                    id: 'counter'
+                },
+                '0',null
+            ),
+            React.createElement(
+                'button', 
+                null,
+                '+'
+            ),
+            React.createElement(
+                'button', 
+                null,
+                '-'
+            )
+        )
+
+        ReactDOM.render(element, document.getElementById('root'))
+    </script>
+    
+</body>
+</html>

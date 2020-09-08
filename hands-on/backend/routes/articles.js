@@ -120,6 +120,7 @@ router.patch( '/:id', ( req, res, next ) => {
 router.delete( '/:id', ( req, res, next ) => {
     const id = req.params.id;
 
+    var result = null
     Article
         .findByIdAndRemove( id )
         .exec(( err, results ) => {
@@ -127,9 +128,22 @@ router.delete( '/:id', ( req, res, next ) => {
                 err.status = 500;
                 return next( err );
             }
-
-            res.status( 204 ).send( '' );
+            result = results
+            res.status( 200).send( results );
         });
+
+        ArticleWithComments
+        .findByIdAndRemove( id )
+        .exec(( err, results ) => {
+            if( err ) {
+                err.status = 500;
+                return next( err );
+            }
+            result = results
+            res.status( 200).send( results );
+        });
+    
+    console.log(result)
 });
 
 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.development.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+        <script type="text/babel">
+
+            function TodoInput () {
+                return (
+                    <div className="my-3">
+                        <input className="form-control" type="text" placeholder="what to do?" />
+                        <button className="btn btn-primary btn-block">add</button>
+                    </div>
+                )
+            }
+            
+            function TodoList ({todos}) {
+               return (
+                <ul className="list-group">
+                {
+                    todos.map( todo => (
+                        <li key={todo.name} className="list-group-item">
+                            <input type="checkbox" checked={todo.completed} />
+                            Name: {todo.name}
+                            <button className="btn btn-danger float-right">Delete</button>
+
+                        </li>
+                    ))
+                }    
+                </ul>  
+               )
+               
+            }
+            function TodoListApp({todos}) {
+                return (
+                    <div className="container my-5">
+                        <h1>Todo List Application</h1>
+                        <hr />
+                        <TodoInput />
+                        <TodoList todos={todos} />
+                    </div>
+                )
+            }
+
+            const todos = [
+                {name: "Buy Groceries", completed: false},
+                {name: "Practise React", completed: false},
+                {name: "complete hands-on assessment", completed: true}
+            ]
+            ReactDOM.render( <TodoListApp todos={todos} />, document.getElementById( 'root' ) );
+        </script>
+    </body>
+</html>

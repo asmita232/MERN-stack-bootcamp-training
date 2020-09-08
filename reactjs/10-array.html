@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.development.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const TaskInput = () => {
+            return (
+                <form>
+                    <input type="text"/>  
+                    <button type="submit">add</button>  
+                </form>
+            )
+        }
+
+        const TaskList = ({tasks}) => {
+            return (
+                <form>
+                    <ol>
+                       { 
+                           tasks.map(item => 
+                            (
+                                <li>name: {item.name} completed: {item.completed}</li>
+                            )
+                            )
+                        }
+                    </ol>    
+                </form>
+            )
+        }
+        
+        const tasks = [
+            { name: 'Buy milk', completed: true },
+            { name: 'Learn React', completed: false },
+        ]
+
+        ReactDOM.render(
+        <form>
+            <TaskInput />
+            <TaskList tasks={tasks} />    
+        </form>,
+        document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

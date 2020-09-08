@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.min.js"></script>
+
+    <script type="text/babel">
+
+        class Form extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                return (
+                    <form>
+                        {this.props.children}
+                    </form>
+                )
+            }
+        }
+        class TaskInput extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                return (
+                    <form>
+                        <input type='text' placeholder='What you want to do?'/>
+                        <button type='submit'>add </button>
+                    </form>
+                )
+            }
+        }
+
+        class TodoList extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                return (
+                    <form>
+                        <ol>
+                        {this.props.children}
+                        </ol>
+                    </form>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Form>
+                <TaskInput class="TaskInput" />
+                <TodoList class="TodoList">
+                    <li>Take Tea</li>
+                    <li>Buy Vegetables</li>
+                </TodoList>
+            </Form>
+            ,
+            document.querySelector('#root')
+        )
+    </script>
+</body>
+</html>

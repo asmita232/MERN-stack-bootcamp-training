@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.development.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const Contact = ({mobileNo, address}) => {
+            return (
+                <React.Fragment>
+                <p>Contact Details: {mobileNo}, {address}</p>
+                </React.Fragment>
+            )
+        }
+
+        const BusinessCard = ({fullname, designation, company, contactDetails, imgPath}, className) => {
+           console.log(className)
+            return (
+                <form className = {className}>
+                    <p>This is form data</p>
+                    <p>fullname: {fullname}</p>
+                    <p>{designation}</p>
+                    <p>{company}</p>
+                    <Contact {...contactDetails} />
+                    <p>{imgPath}</p>
+                </form>  
+            )
+        }
+
+        const props = {
+            fullname: "Radheya Rao",
+            designation: "Developer",
+            company: "Telstra",
+            contactDetails: {
+                mobileNo: 9875869879,
+                address: "Wipro campus, Pune"
+            },
+            imgPath: "http://url"
+        }
+        const mainStyle = {
+            fontSize: "3em",
+            
+        }
+        ReactDOM.render( 
+            <BusinessCard {...props} className="BusinessCard" />
+            , document.getElementById( 'root' ) );
+    </script>
+</body>
+</html>

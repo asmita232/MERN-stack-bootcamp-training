@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.min.js"></script>
+
+    <!-- <div>
+         Task input -->
+        <!-- <form action="">
+            <input type="text" placeholder="what do you want to do?"/>
+            <button>add Todo</button>
+        </form> -->
+        <!-- taskList 
+    </div> -->
+
+    <script type="text/babel">
+
+        const Clock = () => {
+            <div></div>
+        }
+
+        const TaskInput = () => {
+            return (
+                <form>
+                    <input type="text"  placeholder="what do you want to do?"/>    
+                    <button type="submit">add</button>
+                </form>
+            )
+        }
+
+        const TodoList = () => {
+            return (
+                <div>
+                    <ul>
+                        Repair Scooter
+                    </ul>
+                </div>
+            )
+        }
+
+        const Items = (props) => {
+
+            return (
+                <ol>
+                    {props.children}
+                </ol>
+            )
+        }
+        const element1 = (
+            <form>
+                <input type="text"  placeholder="what do you want to do?"/>    
+                <button type="submit">add</button>
+            </form>
+        )
+        ReactDOM.render(
+           <TaskInput />
+            ,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
+<!--  <form>
+                <TaskInput>
+                </TaskInput>
+                <TodoList>
+                </TodoList>
+            </form> -->

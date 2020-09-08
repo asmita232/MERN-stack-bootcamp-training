@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.min.js"></script>
+    
+    <script type="text/babel">
+        class Form extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                return (
+                    <form>
+                        {this.props.children}
+                    </form>
+                )
+            }
+        }
+
+        class NumberIncr extends React.Component {
+
+            constructor(props) {
+                super(props)
+
+                this.state = {
+                    number : number * 2
+                }
+
+
+            }
+            render() {
+                return(
+                    <p>
+                        {this.state.number}
+                    </p>
+                )
+            }
+
+            componentDidMount() {
+            setInterval(() => {
+                this.setState({
+                    number: 2
+                })
+            }, 1000)
+        }
+
+        }
+
+        // componentDidMount(){
+        //     setTimeout( () => {
+        //         this.setState({
+        //             number: number * 2
+        //         });
+        //     }, 1000);
+        // }
+
+        
+        ReactDOM.render(
+            <form>
+                
+                </form>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

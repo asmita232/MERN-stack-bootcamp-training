@@ -1,0 +1,17 @@
+[{
+    "author": "Suresha",
+    "title": "The legend of Hanuman",
+    "abstract": "This is abstract of article",
+    "body": "This is body of article",
+    "imageUrl": {
+        "value": "http://this-is-url",
+        "createdAt": "Tue Sep 08 2020 09:11:16 GMT+0530 (India Standard Time)"
+    }
+},
+
+{
+    "commenter": "Jackson",
+    "createdAt": "Tue Sep 08 2020 09:11:16 GMT+0530 (India Standard Time)",
+    "comment": "This is comment"
+}
+]

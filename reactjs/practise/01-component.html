@@ -14,12 +14,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.min.js"></script>
 
     <script type="text/babel">
-        function TodoInput(){
+        function TodoInput({addTodo}){
+            const inputRef = React.createRef()
+
+            function addTodoHelper() {
+                console.log(inputRef.current.value)
+                const newTodo = {
+                    name: inputRef.current.value,
+                    completed: false
+                }
+
+                addTodo(newTodo)
+            }
             return (
                 <form className="">
                    
-                    <input id="input-task" className="form-control" type="text" placeholder="what to do?" />    
-                    <button className="btn btn-primary btn-block" type="submit" >Add Task</button>
+                    <input id="input-task" className="form-control" type="text" placeholder="what to do?" ref={inputRef}/>    
+                    <button className="btn btn-primary btn-block" type="button" onClick={addTodoHelper} >Add Task</button>
                 </form>
             )
         }
@@ -34,16 +45,27 @@
             // state = {
             //     todos: this.props.todos
             // }
+            listItem = React.createRef()
+            todos = this.props.todos
+
+            deleteButtonHandler = () => {
+                console.log("this.props in deleteButtonhandler = ",this.props)
+                console.log("index of deleteitem = ",parseInt(this.listItem.current.id))
+                this.props.deleteTodo(parseInt(this.listItem.current.id))
+            }
             render() {
-                console.log(this.props)
+                
+                console.log("todos in TodoList=",todos)
+
+                
                 return (
                    <div className=" ">
                         <ul className="list-group">
                         {
                             todos.map( (todo, idx) => (
-                                <li className="list-group-item" key={idx}>
+                                <li className="list-group-item" key={idx} ref={this.listItem} id={idx}>
                                     {todo.name}
-                                    <button className="float-right btn btn-danger">Delete</button>
+                                    <button className="float-right btn btn-danger" onClick={this.deleteButtonHandler}>Delete</button>
                                 </li>
                             ))
                         }
@@ -55,22 +77,56 @@
 
         class TodoListApp extends React.Component {
 
-            constructor(todos) {
-                super(todos)
-                this.state = {
-                    todos: todos
-                }
+            // constructor(todos) {
+            //     super(todos)
+            //     this.state = {
+            //         todos: todos
+            //     }
+            // }
+
+            state = {
+                todos: this.props.todos
+            }
+            addTodo = (newTodo) => {
+                // console.log(newTodo)
+                // console.log(this.state.todos)
+                this.setState({
+                    todos: [
+                        newTodo,
+                        ...this.state.todos
+                    ]
+                })
+            }
+            
+            todosDeleted = [
+                {name: "Buy fruits", completed: false},
+                {name: "Bake cake", completed: true},
+            ]
+            deleteTodo = (index) => {
+                this.setState({
+                    todos: this.todosDeleted
+                })
             }
 
             render() {
                 return (
                     <React.Fragment>
-                        <TodoInput />
-                        <TodoList todos={this.state.todos} />
+                        <TodoInput addTodo={this.addTodo} />
+                        <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo} />
                     </React.Fragment>
                 )
             }
+
+            // componentDidMount() {
+            //     this.setState({
+            //         todos: [
+            //             addTodoHelper(),
+            //             ...this.state.todos
+            //         ]
+            //     })
+            // }
         }
+
         ReactDOM.render(
             <div className="container m-4">
                 <TodoListApp todos={todos}/>

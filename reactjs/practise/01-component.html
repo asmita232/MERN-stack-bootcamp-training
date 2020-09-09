@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.min.js"></script>
+
+    <script type="text/babel">
+        function TodoInput(){
+            return (
+                <form className="">
+                   
+                    <input id="input-task" className="form-control" type="text" placeholder="what to do?" />    
+                    <button className="btn btn-primary btn-block" type="submit" >Add Task</button>
+                </form>
+            )
+        }
+
+        const todos = [
+            {name: "Buy fruits", completed: false},
+            {name: "Bake cake", completed: true},
+            {name: "practise react", completed: true}
+        ]
+
+        class TodoList extends React.Component {
+            // state = {
+            //     todos: this.props.todos
+            // }
+            render() {
+                console.log(this.props)
+                return (
+                   <div className=" ">
+                        <ul className="list-group">
+                        {
+                            todos.map( (todo, idx) => (
+                                <li className="list-group-item" key={idx}>
+                                    {todo.name}
+                                    <button className="float-right btn btn-danger">Delete</button>
+                                </li>
+                            ))
+                        }
+                        </ul>
+                    </div>
+                )
+            }
+        }
+
+        class TodoListApp extends React.Component {
+
+            constructor(todos) {
+                super(todos)
+                this.state = {
+                    todos: todos
+                }
+            }
+
+            render() {
+                return (
+                    <React.Fragment>
+                        <TodoInput />
+                        <TodoList todos={this.state.todos} />
+                    </React.Fragment>
+                )
+            }
+        }
+        ReactDOM.render(
+            <div className="container m-4">
+                <TodoListApp todos={todos}/>
+            </div>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

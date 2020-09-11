@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.development.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class TodoListApp extends React.Component {
+            
+            render() {
+                return (
+                    <div>
+                        <h1>This is the heading in class</h1>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <TodoListApp>
+                <hr />
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni explicabo eligendi ullam odio ipsa! Sed, quasi beatae iste doloremque ducimus dicta eveniet accusantium quos autem voluptatibus accusamus. Alias, rerum molestias?</p>
+            </TodoListApp>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

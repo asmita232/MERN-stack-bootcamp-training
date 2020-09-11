@@ -20,13 +20,14 @@
             function TodoInput () {
                 return (
                     <div className="my-3">
-                        <input className="form-control" type="text" placeholder="what to do?" />
+                        <input className="form-control" type="text" placeholder="what to do?"/>
                         <button className="btn btn-primary btn-block">add</button>
                     </div>
                 )
             }
             
             function TodoList ({todos}) {
+                console.log('todos in TodoList = ', todos)
                return (
                 <ul className="list-group">
                 {
@@ -43,15 +44,27 @@
                )
                
             }
-            function TodoListApp({todos}) {
-                return (
-                    <div className="container my-5">
-                        <h1>Todo List Application</h1>
-                        <hr />
-                        <TodoInput />
-                        <TodoList todos={todos} />
-                    </div>
-                )
+
+            class TodoListApp extends React.Component {
+
+                constructor(todos) {
+                    console.log(todos)
+                    super(todos)
+                    this.state = {
+                        todos: todos
+                    }
+                }
+
+                render(){   
+                    return (
+                        <div className="container my-5">
+                            <h1>Todo List Application</h1>
+                            <hr />
+                            <TodoInput />
+                            <TodoList todos={todos} />
+                        </div>
+                    )
+                }
             }
 
             const todos = [

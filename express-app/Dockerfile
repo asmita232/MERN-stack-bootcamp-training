@@ -4,7 +4,7 @@ LABEL email="asmitachavan121@gmail.com"
 
 WORKDIR /usr/src/app
 
-ENV PORT=3000
+ENV PORT=10000
 ENV NODE_ENV=development
 
 #Container port is exposed, host port will be mapped while creating container

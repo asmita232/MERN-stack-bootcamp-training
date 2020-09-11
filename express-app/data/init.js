@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 //create models
 require('../model/Product')
-mongoose.connect('mongodb://localhost/mystore', { useNewUrlParser: true })
+mongoose.connect('mongodb://mongodb/mystore', { useNewUrlParser: true })
 
 const connection = mongoose.connection
 

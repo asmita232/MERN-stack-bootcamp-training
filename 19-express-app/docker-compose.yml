@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    node:
+        build:
+            context: . #we will copy files from current folder
+            dockerfile: Dockerfile
+        ports:
+            - "10000:10000"
+        networks:
+            - web-app-network
+    mongodb:
+        image: mongo
+        networks: 
+            - web-app-network
+
+networks:
+    web-app-network:
+        driver: bridge
+
+        

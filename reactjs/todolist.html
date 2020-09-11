@@ -27,9 +27,11 @@
         }
 
         const TaskInput = () => {
+
+            const inputRef = React.createRef()
             return (
                 <form>
-                    <input type="text"  placeholder="what do you want to do?"/>    
+                    <input type="text"  placeholder="what do you want to do?" ref={inputRef}/>    
                     <button type="submit">add</button>
                 </form>
             )

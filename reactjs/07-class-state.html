@@ -29,7 +29,7 @@
 
             constructor(props) {
                 super(props)
-
+                let number = 1
                 this.state = {
                     number : number * 2
                 }
@@ -45,30 +45,29 @@
             }
 
             componentDidMount() {
-            setInterval(() => {
-                this.setState({
-                    number: 2
-                })
-            }, 1000)
-        }
+                setInterval(() => {
+                    this.setState({
+                        number: this.state.number * 2
+                    })
+                }, 1000)
+            }
 
         }
-
-        // componentDidMount(){
-        //     setTimeout( () => {
-        //         this.setState({
-        //             number: number * 2
-        //         });
-        //     }, 1000);
-        // }
-
         
         ReactDOM.render(
             <form>
-                
-                </form>,
+                <NumberIncr />    
+            </form>,
             document.getElementById('root')
         )
     </script>
 </body>
 </html>
+
+<!-- // componentDidMount(){
+    //     setTimeout( () => {
+    //         this.setState({
+    //             number: number * 2
+    //         });
+    //     }, 1000);
+    // } -->

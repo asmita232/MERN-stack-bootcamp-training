@@ -1,4 +1,4 @@
-use moviesDB
+// use moviesDB
 
 db.albums.insertMany([
     {

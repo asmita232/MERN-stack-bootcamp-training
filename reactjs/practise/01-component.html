@@ -17,7 +17,8 @@
         function TodoInput({addTodo}){
             const inputRef = React.createRef()
 
-            function addTodoHelper() {
+            function addTodoHelper(event, addTodo) {
+                event.preventDefault()
                 console.log(inputRef.current.value)
                 const newTodo = {
                     name: inputRef.current.value,
@@ -30,7 +31,7 @@
                 <form className="">
                    
                     <input id="input-task" className="form-control" type="text" placeholder="what to do?" ref={inputRef}/>    
-                    <button className="btn btn-primary btn-block" type="button" onClick={addTodoHelper} >Add Task</button>
+                    <button className="btn btn-primary btn-block" type="button" onClick={(event) => addTodoHelper(event,addTodo)} >Add Task</button>
                 </form>
             )
         }
@@ -46,7 +47,6 @@
             //     todos: this.props.todos
             // }
             listItem = React.createRef()
-            todos = this.props.todos
 
             deleteButtonHandler = () => {
                 console.log("this.props in deleteButtonhandler = ",this.props)
@@ -54,10 +54,10 @@
                 this.props.deleteTodo(parseInt(this.listItem.current.id))
             }
             render() {
-                
-                console.log("todos in TodoList=",todos)
+                const todos = this.props.todos
 
-                
+                console.log("props in TodoList=",this.props)
+                // console.log("state.todos in TodoList", this.state.todos)
                 return (
                    <div className=" ">
                         <ul className="list-group">
@@ -77,25 +77,22 @@
 
         class TodoListApp extends React.Component {
 
-            // constructor(todos) {
-            //     super(todos)
-            //     this.state = {
-            //         todos: todos
-            //     }
-            // }
-
+            newTodo = null
             state = {
                 todos: this.props.todos
             }
             addTodo = (newTodo) => {
                 // console.log(newTodo)
-                // console.log(this.state.todos)
-                this.setState({
+                console.log("this.state.todos in addTodo",this.state.todos)
+                console.log("newTodo in addTodo",newTodo)
+
+                return this.setState({
                     todos: [
                         newTodo,
-                        ...this.state.todos
+                        ...this.state.todos,
                     ]
                 })
+                
             }
             
             todosDeleted = [
@@ -109,6 +106,7 @@
             }
 
             render() {
+                console.log('todos in render', this.state.todos)
                 return (
                     <React.Fragment>
                         <TodoInput addTodo={this.addTodo} />
@@ -120,7 +118,7 @@
             // componentDidMount() {
             //     this.setState({
             //         todos: [
-            //             addTodoHelper(),
+            //             this.newTodo,
             //             ...this.state.todos
             //         ]
             //     })

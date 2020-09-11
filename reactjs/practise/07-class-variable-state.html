@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.min.js"></script>
+
+    <script type="text/babel">
+
+        class NumSpan extends React.Component {
+            state = {
+                num: this.props.num
+            }
+            render() {
+                return (
+                    <form>
+                        <span>{this.state.num}  </span>
+                        <span>{this.state.num2}</span>
+                    </form>
+                )
+            }
+
+            componentDidMount() {
+                setInterval(() => {
+                    this.setState({
+                        num2: this.state.num * 2,
+                        num: this.state.num * 2
+                    })
+                }, 1000);
+            }
+        }
+
+        const num = 10
+        ReactDOM.render(
+            <React.Fragment>
+                <NumSpan num={num} />
+            </React.Fragment>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

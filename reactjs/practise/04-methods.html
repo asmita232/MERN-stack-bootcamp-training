@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.min.js"></script>
+
+    <script type="text/babel">
+        const El1 = (
+            <div key="2">
+                <span>How is React?</span>    
+                <span>React is fun!</span>
+            </div>
+        )
+        
+        const El2 = (
+            <div key="1">
+                <span>How is HTML?</span>    
+                <span>HTML is fun!</span>
+            </div>
+        )
+
+        const El3 = (
+            <div>
+                <span>How is Nodejs? </span>    
+                <span>Nodejs is fun!</span>
+            </div>
+        )
+
+        // ReactDOM.render(
+        //     <React.Fragment>
+        //         {El1}
+        //         <hr />
+        //         {El2}
+        //     </React.Fragment>,
+        //     document.getElementById('root')
+        // )
+
+        // ReactDOM.render(
+        //     <div>
+        //         {El1}
+        //         {El2}
+        //     </div>,
+
+        //     document.getElementById('root')
+        // )
+
+        const array = [El1, El2]
+        ReactDOM.render(
+            array,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
